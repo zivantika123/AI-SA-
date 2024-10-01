@@ -7,7 +7,7 @@ lunges-https://www.pexels.com/search/lunges/
 crunches- https://www.pexels.com/search/crunches%20exercise/
 squats- https://www.pexels.com/search/squats/
 
-This project uses pose estimation techniques with TensorFlow.js and Teachable Machine to track and classify gym exercises, including lunges, plank, pull-up, squat, and crunches. Users can interact with the system through either a live webcam feed or uploaded photos.
+This project uses pose estimation techniques with Teachable Machine to track and classify gym exercises, including lunges, plank, pull-up, squat, and crunches. Users can interact with the system through either a live webcam feed or uploaded photos.
 
 ## Table of Contents
 - [Description](#description)
