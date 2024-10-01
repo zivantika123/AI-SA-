@@ -1,5 +1,7 @@
 # Gym Pose Estimation
 
+The model is https://teachablemachine.withgoogle.com/models/k4U33q8co/
+
 This project uses pose estimation techniques with TensorFlow.js and Teachable Machine to track and classify gym exercises, including lunges, plank, pull-up, squat, and crunches. Users can interact with the system through either a live webcam feed or uploaded photos.
 
 ## Table of Contents
@@ -354,6 +356,3 @@ App Development:
 
 Eventually, the project could be turned into a mobile app with offline support, allowing users to train and get feedback without needing an active internet connection.
 
-In the end i would like to conclude that the code may run into some issues and it may not predict correctly but all we need to do is make an even bigger dataset , than already existed and as time goes on we can add new gym exercises to the bot and make it more diverse , but as of now we need to make do with the imperfect perfectionof the code.
-
-the model is https://teachablemachine.withgoogle.com/models/k4U33q8co/
