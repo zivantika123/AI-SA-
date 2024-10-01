@@ -2,6 +2,11 @@
 
 The model is https://teachablemachine.withgoogle.com/models/k4U33q8co/
 
+dataset and database used for this project- pull ups- https://www.pexels.com/search/pull%20ups/
+lunges-https://www.pexels.com/search/lunges/
+crunches- https://www.pexels.com/search/crunches%20exercise/
+squats- https://www.pexels.com/search/squats/
+
 This project uses pose estimation techniques with TensorFlow.js and Teachable Machine to track and classify gym exercises, including lunges, plank, pull-up, squat, and crunches. Users can interact with the system through either a live webcam feed or uploaded photos.
 
 ## Table of Contents
@@ -72,17 +77,7 @@ Technologies Used
 
 The Technologies Used section lists and explains the tools and technologies involved in creating the project. This could include:
 
-TensorFlow.js: A JavaScript library used to run the machine learning model in the browser. It's responsible for performing the real-time pose detection and classification using deep learning.
-
 Teachable Machine: A Google-powered tool that allows users to train machine learning models easily. In this project, it’s used to train a pose estimation model capable of classifying different exercises based on the user’s body movements.
-
-HTML, CSS, and JavaScript: These are the core web technologies used to build the user interface.
-
-HTML structures the page, placing elements like the webcam stream and buttons.
-
-CSS styles the interface, ensuring that the application looks visually appealing.
-
-JavaScript handles the logic, such as webcam setup, pose detection, and model integration.
 
 
 Features
@@ -108,51 +103,6 @@ This feature works by allowing users to upload an image, which is then processed
 Exercise Classification
 
 The Exercise Classification feature is central to the project. Once the system detects the user’s body pose, it classifies the exercise being performed, such as lunges, planks, squats, pull-ups, or crunches. This classification allows the system to give targeted feedback, letting users know not only what exercise they are doing but also how well they are doing it.
-
-Installation
-
-Prerequisites
-
-Before starting the installation, ensure you have the following:
-
-A modern web browser like Chrome, Firefox, or Safari that supports WebRTC (for webcam access).
-A working webcam (if you plan to use the webcam feature for real-time exercise tracking).
-An internet connection to access the TensorFlow.js and Teachable Machine libraries (or you can include them locally in the project if needed).
-Basic knowledge of how to work with HTML, JavaScript, and possibly simple server setups if running locally.
-Clone the Repository
-To start working with the project locally, clone the repository to your machine. Open a terminal or command prompt and run the following command:
-
-bash
-Copy code
-git clone https://github.com/yourusername/gym-pose-estimation.git
-This will download the project files into a directory on your system.
-
-Once cloned, navigate to the project folder:
-
-bash
-
-cd gym-pose-estimation
-Download and Setup Model
-The Teachable Machine model for pose estimation needs to be downloaded and placed in the appropriate directory within the project.
-
-Download Model:
-Go to the Teachable Machine model page or the export panel, and download the following files:
-model.json
-metadata.json
-Weight files (if applicable, these could be .bin files).
-
-Setup Model in Project:
-
-Create a folder called model/ in the root directory of your project.
-Place the model.json, metadata.json, and all associated weight files inside the model/ folder.
-Model Path: Ensure that the paths in your JavaScript file (usually in the index.html) correctly point to the model directory. For example:
-javascript
-
-"const modelURL = './model/model.json';"
-"const metadataURL = './model/metadata.json';"
-
-Once everything is set up, open the index.html file in your browser to run the project. You can do this either by directly opening the file in your browser or using a local server like http-server or Live Server for better results.
-
 
 
 Usage
@@ -187,11 +137,7 @@ Detected Exercise:
 Based on your pose, the system will classify the exercise (e.g., "Squat", "Plank").
 Confidence Score:
 A confidence score (between 0 and 1) will indicate how certain the system is in its classification. For example, Squat: 0.95 means a 95% confidence in the detection of a squat.
-Form Feedback:
-Optional: The system could provide basic form suggestions or corrections (e.g., "Keep your back straight" or "Lower your knees").
-Continuous Tracking (Webcam):
-If using a webcam, feedback will update continuously as you perform different exercises, adjusting for each repetition.
-Supported Exercises
+
 The pose estimation model supports the detection of five core exercises:
 
 Lunges
@@ -240,9 +186,6 @@ Loading the Model:
 
 The exported model (consisting of model.json, metadata.json, and weight files) is loaded into the project using the Teachable Machine Pose Library.
 
-Integration in JavaScript:
-
-The model is integrated directly into the HTML and JavaScript code. Using the tmPose library, the model is initialized and used for real-time pose detection, either through a webcam or an uploaded image.
 
 Accuracy and Confidence Scores
 
@@ -258,23 +201,7 @@ Continuous Prediction (Webcam):
 
 During webcam usage, the model constantly makes predictions as you move through exercises, updating the confidence scores in real-time.
 Model Initialization
-The first step in JavaScript is initializing the Teachable Machine model:
 
-Loading the Model:
-The model is loaded using tmPose.load() where the URLs for model.json and metadata.json are specified.
-Model Ready:
-Once the model is loaded, the system is ready to start making predictions on images or webcam data.
-Webcam Setup
-The webcam setup ensures that the user's camera is accessed and the video feed is captured for real-time pose detection:
-
-Webcam Initialization:
-
-The webcam is initialized with the specified dimensions (e.g., 200x200) and optional flipping (for mirror effect).
-Play Function:
-
-The webcam.play() method starts the video feed, which is then continuously updated as the user performs exercises.
-Pose Detection
-The pose detection part uses the loaded model to analyze the webcam or image data and estimate the user's pose:
 
 Pose Estimation:
 
@@ -291,32 +218,6 @@ The model.predict() function classifies the current pose into one of the predefi
 Display Results:
 The classified exercise and its confidence score are displayed on the webpage, allowing the user to see feedback in real-time as they perform the exercise.
 
-Dependencies
-TensorFlow.js
-TensorFlow.js is the core library used for machine learning in the browser.
-
-Purpose:
-
-TensorFlow.js allows the model to run directly in the user's browser without the need for server-side computation. This enables real-time pose estimation using the webcam or uploaded images.
-Integration:
-
-It is imported via a CDN (Content Delivery Network) link, which makes it easy to add to the project. The library handles the computational tasks necessary for processing the pose estimation model and classifying exercises.
-Version:
-
-The project uses TensorFlow.js version 1.3.1, but it can be updated to a more recent version for better performance and support for additional features.
-Teachable Machine Pose Library
-The Teachable Machine Pose Library is built on top of TensorFlow.js and provides an easy interface for using pose estimation models.
-
-Purpose:
-
-This library simplifies the integration of pose estimation models trained using Google’s Teachable Machine. It takes care of loading the model, making predictions, and estimating poses.
-Integration:
-
-The library is included via a CDN and is crucial for processing the webcam feed or uploaded images and generating predictions related to exercise poses.
-Pose Detection:
-
-It enables the real-time detection of poses by identifying body joints and classifying them into predefined categories (like squats or lunges) based on the trained model.
-Future Improvements
 
 Additional Exercises:
 
